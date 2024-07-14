@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../screens/home_screen.dart';
 
 class BottomButtonsWidget extends StatelessWidget {
   const BottomButtonsWidget({super.key});
@@ -18,7 +19,12 @@ class BottomButtonsWidget extends StatelessWidget {
                 color: Color(0xff27187e),
                 size: 40.0,
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const HomeScreen()),
+                );
+              },
             ),
             IconButton(
               icon: const Icon(

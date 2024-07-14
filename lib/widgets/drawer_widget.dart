@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import '../authentication/auth_helper_local.dart';
+import '../authentication/auth_gate.dart';
 
 class DrawerWidget extends StatelessWidget {
   const DrawerWidget({super.key});
@@ -18,7 +19,10 @@ class DrawerWidget extends StatelessWidget {
             ),
             tileColor: Colors.pink,
             onTap: () {
-              Navigator.pop(context);
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => const AuthGate()),
+              );
               FirebaseUIAuth.signOut();
               AuthHelperLocal.removeUserEmail();
             },
